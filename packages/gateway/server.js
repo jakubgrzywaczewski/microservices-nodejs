@@ -1,17 +1,16 @@
 import express from 'express';
 import apolloServerExpress from 'apollo-server-express';
-import bodyParser from 'body-parser';
 
 import currentEnvironment from './config/index.js';
 import schema from './data/schema.js';
 
-const { graphqlExpress, graphiqlExpress } = apolloServerExpress;
+const { ApolloServer } = apolloServerExpress;
 const { port } = currentEnvironment;
 
-const server = express();
+const app = express();
+const server = new ApolloServer({ schema });
 
-server
-  .use(bodyParser.json())
-  .use('/graphql', graphqlExpress({ schema }))
-  .use('/gq', graphiqlExpress({ endpointURL: '/graphql' }))
-  .listen(port, () => console.log(`api-gateway listening on port: ${port}`));
+server.applyMiddleware({ app });
+app.listen(port, () =>
+  console.log(`api-gateway listening on: ${port}:${server.graphqlPath}`)
+);
