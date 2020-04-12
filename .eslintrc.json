@@ -9,7 +9,7 @@
   "plugins": ["jsdoc"],
   "overrides": [
     {
-      "files": ["**/*.spec.js", "**/__tests__/*", "src/common/test_utils.js"],
+      "files": ["**/*.spec.js"],
       "env": {
         "jest": true
       },
