@@ -1,3 +1,5 @@
-# microservices-nodejs
+# mailing system
 
-node_modules
+Structure:
+
+- api gateway service
