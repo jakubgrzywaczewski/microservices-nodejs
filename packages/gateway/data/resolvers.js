@@ -23,7 +23,7 @@ const mockMails = [
 
 const resolvers = {
   Query: {
-    mails: () => mockMails,
+    Mails: () => mockMails,
   },
 };
 
