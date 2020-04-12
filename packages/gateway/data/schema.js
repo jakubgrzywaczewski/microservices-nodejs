@@ -5,7 +5,7 @@ const { makeExecutableSchema } = graphQlTools;
 
 const typeDefs = `
   type Query {
-    Mails: [Mail]
+    mails: [Mail]
     mail(subject: String!, receiver: String!): Mail
   }
 

@@ -23,7 +23,15 @@ const mockMails = [
 
 const resolvers = {
   Query: {
-    Mails: () => mockMails,
+    mails: () => mockMails,
+    mail: (_, args) => mockMails[0],
+  },
+  Mutation: {
+    mail: (_, args) => {
+      mockMails.push(args);
+
+      return mockMails;
+    },
   },
 };
 
