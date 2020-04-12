@@ -1,0 +1,69 @@
+{
+  "env": {
+    "browser": false,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb-base", "plugin:jsdoc/recommended"],
+  "parser": "babel-eslint",
+  "plugins": ["jsdoc"],
+  "overrides": [
+    {
+      "files": ["**/*.spec.js", "**/__tests__/*", "src/common/test_utils.js"],
+      "env": {
+        "jest": true
+      },
+      "rules": {
+        "no-restricted-properties": [
+          "error",
+          {
+            "object": "it",
+            "property": "only",
+            "message": "While helpful during development, commiting this will prevent other tests from being run."
+          }
+        ]
+      }
+    }
+  ],
+  "rules": {
+    "arrow-parens": [
+      "error",
+      "as-needed",
+      {
+        "requireForBlockBody": true
+      }
+    ],
+    "camelcase": [
+      "error",
+      {
+        "ignoreDestructuring": true,
+        "properties": "never"
+      }
+    ],
+    "no-async-promise-executor": "off",
+    "no-return-await": "off",
+    "class-methods-use-this": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/prefer-default-export": "off",
+    "jsdoc/check-examples": "warn",
+    "jsdoc/check-tag-names": ["warn", { "definedTags": ["group", "route"] }],
+    "jsdoc/no-undefined-types": "off",
+    "jsdoc/require-description": "warn",
+    "jsdoc/require-jsdoc": "off",
+    "max-len": ["warn", { "code": 140 }],
+    "no-multiple-empty-lines": ["warn", { "max": 1 }],
+    "no-shadow": "off",
+    "no-plusplus": "off",
+    "no-underscore-dangle": ["error", { "allow": ["_dev_abr"] }],
+    "no-warning-comments": "warn",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
+    ]
+  }
+}
